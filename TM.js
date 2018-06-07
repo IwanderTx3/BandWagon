@@ -5,7 +5,7 @@ const concertURL = 'https://app.ticketmaster.com/discovery/v2/events.json?countr
 let movieList=$("#movieList")
 var genrePick="Country"
 var locationPick="Houston"
-var artistPass=[]  
+var artistPass=[] 
 // test
 //test2
 var genreCats = 
@@ -405,6 +405,11 @@ function buildLocation(){
     return city
 }
 
+
+$(function () {
+    $('select').multipleSelect();
+});
+
 function fetchAll()
 {
     buildLocation()
@@ -435,14 +440,25 @@ function fetchAll()
                     let eventDate=event[i].dates.start.localDate
                     let li = $("<li>").addClass("displayList");
                     let itemTitle= $("<title>").addClass("textForm")
-                   li.append(eventTitle)
-                   li.append(" at the "+venue)
-                   li.append(" on "+eventDate)
-                   li.append(" Genre:  "+genre)
+                   li.append(`<p class="event-title"> ${eventTitle}</p>`)
+                   li.append(`<p class="venue-class"> Venue: ${venue}</p>`)
+                   li.append(`<p class="event-date"> Date: ${eventDate}</p>`)
+                   li.append(`<p class="genre"> Genre: ${genre}</p>`)
                    movieList.append(li)
                     }
         })
     }
 
 fetchAll()
- 
+
+/*
+function buildit(genre, eventTitle, venue, eventDate ){
+    let li = $(“<li>“).addClass(“displayList”);
+    let itemTitle= $(“<title>“).addClass(“textForm”)
+    li.append(eventTitle)
+    li.append(” at the “+venue)
+    li.append(” on “+eventDate)
+    li.append(” Genre:  “+genre)
+    movieList.append(li)
+}
+*/

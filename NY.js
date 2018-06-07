@@ -23,12 +23,9 @@ country.click(function(){genre = 'County',console.log("County clicked"),console.
 world.click(function(){genre = 'World',console.log("World clicked"),console.log(genresearch),movieList.innerHTML='',fetchAll()})
 rnb.click(function(){genre = 'R&B',console.log("R&B clicked"),console.log(genresearch),movieList.innerHTML='',fetchAll()})
 
-
 $(function () {
     $('select').multipleSelect();
 });
-
-
 
 function fetchAll()
 {
